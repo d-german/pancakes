@@ -1,0 +1,174 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="837" measuredH="435" mockupW="821" mockupH="420">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="16" y="15" w="821" h="420" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::FieldSet" x="27" y="52" w="798" h="332" measuredW="200" measuredH="170" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="39" y="99" w="132" h="21" measuredW="123" measuredH="20" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>12</size>
+        <text>Number%20Of%20Pancakes%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::RadioButtonGroup" x="240" y="99" w="-1" h="-1" measuredW="126" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28o%29%20Imperial%20%28%29%20Metric</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::MenuBar" x="27" y="23" w="-1" h="-1" measuredW="186" measuredH="29" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <selectedIndex>-1</selectedIndex>
+        <text>Save%20%3E%2C%20Email%2C%20Print</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::NumericStepper" x="163" y="89" w="62" h="-1" measuredW="55" measuredH="31" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>20</size>
+        <text>12</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::FieldSet" x="39" y="128" w="420" h="226" measuredW="200" measuredH="170" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Ingredients</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::TextInput" x="134" y="162" w="34" h="-1" measuredW="23" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>disabled</state>
+        <text>2</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Label" x="48" y="198" w="-1" h="-1" measuredW="67" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Buttermilk%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Label" x="48" y="231" w="-1" h="-1" measuredW="45" measuredH="21" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Vanilla%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Label" x="48" y="264" w="-1" h="-1" measuredW="86" measuredH="21" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Vegetable%20oil%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::TextInput" x="134" y="195" w="37" h="-1" measuredW="23" measuredH="27" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>disabled</state>
+        <text>2</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::TextInput" x="134" y="228" w="37" h="-1" measuredW="23" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>disabled</state>
+        <text>2</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::TextInput" x="134" y="261" w="37" h="-1" measuredW="34" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>disabled</state>
+        <text>1/2</text>
+      </controlProperties>
+    </control>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::Label" x="176" y="198" w="-1" h="-1" measuredW="18" measuredH="21" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>cu</text>
+      </controlProperties>
+    </control>
+    <control controlID="21" controlTypeID="com.balsamiq.mockups::Label" x="176" y="231" w="-1" h="-1" measuredW="24" measuredH="21" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>tsp</text>
+      </controlProperties>
+    </control>
+    <control controlID="22" controlTypeID="com.balsamiq.mockups::Label" x="176" y="264" w="-1" h="-1" measuredW="18" measuredH="21" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>cu</text>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::TextInput" x="352" y="162" w="34" h="-1" measuredW="23" measuredH="27" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>disabled</state>
+        <text>2</text>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Label" x="248" y="198" w="-1" h="-1" measuredW="95" measuredH="21" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Baking%20Powder%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::Label" x="248" y="231" w="-1" h="-1" measuredW="80" measuredH="21" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Baking%20Soda%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Label" x="248" y="264" w="-1" h="-1" measuredW="39" measuredH="21" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Sugar</text>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::TextInput" x="352" y="195" w="37" h="-1" measuredW="23" measuredH="27" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>disabled</state>
+        <text>2</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::TextInput" x="352" y="228" w="37" h="-1" measuredW="23" measuredH="27" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>disabled</state>
+        <text>2</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::TextInput" x="352" y="261" w="37" h="-1" measuredW="34" measuredH="27" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>disabled</state>
+        <text>1/2</text>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Label" x="248" y="165" w="-1" h="-1" measuredW="48" measuredH="21" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Flower%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Label" x="401" y="231" w="-1" h="-1" measuredW="24" measuredH="21" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>tsp</text>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Label" x="401" y="198" w="-1" h="-1" measuredW="24" measuredH="21" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>tsp</text>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Label" x="401" y="165" w="-1" h="-1" measuredW="18" measuredH="21" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>cu</text>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Label" x="401" y="264" w="18" h="21" measuredW="18" measuredH="21" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>cu</text>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::FieldSet" x="470" y="67" w="340" h="302" measuredW="200" measuredH="170" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Recipe</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::TextArea" x="477" y="89" w="327" h="273" measuredW="200" measuredH="140" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>14</size>
+        <state>up</state>
+        <text>First%20mix%20wet%20ingredients%20well%20%28I%20use%20a%20blender%20at%20high%20speed%20for%20about%2030%20seconds%29%20it%20will%20be%20bubbly.%20%20Next%20stir%20in%20the%20dry%20ingredients%20just%20until%20everything%20is%20wet.%20Don%27t%20over%20mix%21%20it%20should%20be%20slightly%20lumpy.%20You%20can%20let%20it%20sit%20for%20a%20few%20minutes%20and%20the%20batter%20should%20expand%20a%20little.%20%0A%20%0AI%20always%20use%20a%20griddle%20set%20to%20about%20325%20-%20350%20degrees%20but%20a%20skillet%20at%20medium%20heat%20should%20work%3F%20%20You%20might%20need%20a%20non-stick%20spray.%20The%20batter%20is%20a%20little%20thick%20so%20after%20I%20put%20some%20on%20the%20griddle%20I%20use%20my%20spoon%20to%20flatten%20out%20the%20batter.%20I%20cook%20them%202%20minutes%20on%20each%20side%20or%20until%20they%20look%20how%20you%20want.</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Label" x="48" y="165" w="-1" h="-1" measuredW="31" measuredH="21" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Egg%3A</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

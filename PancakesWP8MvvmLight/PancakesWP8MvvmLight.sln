@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PancakesWP8MvvmLight", "PancakesWP8MvvmLight\PancakesWP8MvvmLight.csproj", "{16548364-B684-4734-84C1-A7A9EDD8F236}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PancakeModel", "..\PancakeModel\PancakeModel.csproj", "{1F224864-F032-4945-89C5-5025C1D93368}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Debug|ARM.ActiveCfg = Debug|ARM
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Debug|ARM.Build.0 = Debug|ARM
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Debug|ARM.Deploy.0 = Debug|ARM
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Debug|x86.ActiveCfg = Debug|x86
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Debug|x86.Build.0 = Debug|x86
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Debug|x86.Deploy.0 = Debug|x86
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Release|ARM.ActiveCfg = Release|ARM
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Release|ARM.Build.0 = Release|ARM
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Release|ARM.Deploy.0 = Release|ARM
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Release|x86.ActiveCfg = Release|x86
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Release|x86.Build.0 = Release|x86
+		{16548364-B684-4734-84C1-A7A9EDD8F236}.Release|x86.Deploy.0 = Release|x86
+		{1F224864-F032-4945-89C5-5025C1D93368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F224864-F032-4945-89C5-5025C1D93368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F224864-F032-4945-89C5-5025C1D93368}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{1F224864-F032-4945-89C5-5025C1D93368}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1F224864-F032-4945-89C5-5025C1D93368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F224864-F032-4945-89C5-5025C1D93368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F224864-F032-4945-89C5-5025C1D93368}.Release|ARM.ActiveCfg = Release|Any CPU
+		{1F224864-F032-4945-89C5-5025C1D93368}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
