@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using PancakesWPF.Model;
+using PancakeModel;
 
 namespace PancakesWPF.ViewModel
 {
@@ -12,6 +13,7 @@ namespace PancakesWPF.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private readonly IDataService _dataService;
+        private PancakeModel.ButtermilkPancakeRecipe _pancakeModel;
 
         /// <summary>
         /// The <see cref="WelcomeTitle" /> property's name.
@@ -60,6 +62,7 @@ namespace PancakesWPF.ViewModel
 
                     WelcomeTitle = item.Title;
                 });
+            _pancakeModel = new PancakeModel.ButtermilkPancakeRecipe();
         }
 
         ////public override void Cleanup()
