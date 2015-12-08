@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 using PancakesWPF.ViewModel;
 
 namespace PancakesWPF
@@ -15,6 +16,11 @@ namespace PancakesWPF
         {
             InitializeComponent();
             Closing += (s, e) => ViewModelLocator.Cleanup();
+        }
+
+        private void Ui_NumPancakes_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
