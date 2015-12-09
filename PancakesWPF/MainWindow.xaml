@@ -8,6 +8,7 @@
         Height="300"
         Width="300"
         Title="MVVM Light Application"
+        WindowState="Maximized"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <Window.Resources>
@@ -75,20 +76,9 @@
             </StackPanel>
 
         </Grid>
-        <ScrollViewer Grid.Row="2"  >
-            <ScrollViewer.Resources>
-                <DataTemplate x:Key="RecpieItemTemplate">
-                    <!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock VerticalAlignment="Top" Margin="5,0,5,0" Width="200" FontWeight="Bold"
-                                   Text="{Binding Label}" />
-                        <TextBlock VerticalAlignment="Center" Margin="10,0,5,0" TextWrapping="Wrap"
-                                   Text="{Binding Amount}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ScrollViewer.Resources>
-          
-        </ScrollViewer>
+        <ListBox Grid.Row="2" ItemsSource="{Binding Path=RecpieItems}">
+           
+        </ListBox>
 
 
         <!--Uncomment to see an alignment grid to help ensure your controls are

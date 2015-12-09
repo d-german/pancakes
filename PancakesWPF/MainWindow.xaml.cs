@@ -20,7 +20,7 @@ namespace PancakesWPF
 
         private void Ui_NumPancakes_OnKeyDown(object sender, KeyEventArgs e)
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }
