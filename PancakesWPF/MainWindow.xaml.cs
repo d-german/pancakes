@@ -35,6 +35,19 @@ namespace PancakesWPF
             {
                 buffer.AppendLine(item.ToString());
             }
+            buffer.AppendLine(String.Empty);
+            buffer.AppendLine("First mix wet ingredients well.");
+            buffer.AppendLine("Next stir in the dry ingredients just until everything is wet. Don't over mix!");
+            buffer.AppendLine(
+                "It should be slightly lumpy. You can let it sit for a few minutes, and the batter should expand a little.");
+            buffer.AppendLine(
+                "Use a griddle set to 325 - 350 degrees or a skillet set to medium heat.");
+            buffer.AppendLine(
+                "The batter is a little thick so after putting some on the griddle, use a spoon to flatten out the batter.");
+            buffer.AppendLine("Cook about 2 minutes on each side or until they look how you want.");
+
+
+
 
             Clipboard.SetText(buffer.ToString());
           
