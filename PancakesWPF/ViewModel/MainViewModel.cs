@@ -18,7 +18,7 @@ namespace PancakesWPF.ViewModel
             @"First mix wet ingredients well (I use a blender at high speed for about 30 seconds) it will be bubbly.\r\n Next stir in the dry ingredients just until everything is wet. Don't over mix! \r\nIt should be slightly lumpy. You can let it sit for a few minutes and the batter should expand a little. I always use a griddle set to about 325 - 350 degrees but a skillet at medium heat should work?  You might need a non-stick spray. The batter is a little thick so after I put some on the griddle I use my spoon to flatten out the batter. I cook them 2 minutes on each side or until they look how you want.";
 
         private readonly List<RecipeItemViewModel> _recipeItems;
-        private int _numPancakes = 24;
+        private int _numPancakes = 6;
 
         private string _welcomeTitle = string.Empty;
 
@@ -112,9 +112,9 @@ namespace PancakesWPF.ViewModel
 
                 _numPancakes = value;
 
-                if (_numPancakes < 12)
+                if (_numPancakes < 6)
                 {
-                    _numPancakes = 12;
+                    _numPancakes = 6;
                 }
 
                 RaisePropertyChanged();

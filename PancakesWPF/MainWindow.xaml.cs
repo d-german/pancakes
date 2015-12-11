@@ -43,7 +43,7 @@ namespace PancakesWPF
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             var buffer = new StringBuilder();
-            buffer.AppendLine("Number of Pancakes: " + ui_NumPancakes.Text);
+            buffer.AppendLine("Number of Pancakes: " + ui_NumPancakes.Content);
             buffer.AppendLine(String.Empty);
             foreach (var item in ui_ListBox.Items)
             {

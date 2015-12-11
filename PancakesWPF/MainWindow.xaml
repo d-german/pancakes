@@ -19,7 +19,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid  Background="Transparent">
+    <Grid Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -55,36 +55,29 @@
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock VerticalAlignment="Center" Width="96" TextWrapping="Wrap" FontSize="28">How Many?</TextBlock>
-                    <TextBox Name="ui_NumPancakes"
-                             FontWeight="Bold"
-                             HorizontalAlignment="Left"
-                             MaxLength="7"
-                             Text="{Binding NumPancakes, Mode=TwoWay}"
-                             Width="144"
-                             Margin="5,5,5,5"
-                             KeyDown="Ui_NumPancakes_OnKeyDown">
-                    </TextBox>
-
-                    <StackPanel>
-                        <Button Content="OK" HorizontalAlignment="Left" Margin="5,5,5,5"
-                                VerticalAlignment="Top" Width="99" />
-                        <Button Content="Copy" Click="ButtonBase_OnClick"  HorizontalAlignment="Left" Margin="5,5,5,5"
-                                VerticalAlignment="Top" Width="99" /></StackPanel>
+                    <Label Name="ui_NumPancakes"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Left"
+                           FontSize="128"
+                           Content="{Binding NumPancakes, Mode=TwoWay}" />
                 </StackPanel>
-                <Slider Margin="0,5,0,5"
-                        x:Name="ui_Slider1"
-                        Minimum="12"
-                        Maximum="504"
-                        SmallChange="6"
-                        IsSnapToTickEnabled="True"
-                        TickFrequency="12"
-                        Value="{Binding NumPancakes, Mode=TwoWay}" />
+                <StackPanel>
+                    <Slider Margin="0,5,0,5"
+                            x:Name="ui_Slider1"
+                            Minimum="6"
+                            Maximum="504"
+                            IsSnapToTickEnabled="True"
+                            TickFrequency="6"
+                            Value="{Binding NumPancakes, Mode=TwoWay}" />
+                    <Button Content="Copy" Click="ButtonBase_OnClick" HorizontalAlignment="Left" Margin="5,5,5,5"
+                                VerticalAlignment="Top" Width="99" />
+                </StackPanel>
             </StackPanel>
 
         </Grid>
         <StackPanel Grid.Row="2">
-            <ListBox Name="ui_ListBox"  FontSize="24" ItemsSource="{Binding Path=RecpieItems}" />
-            <Label Name="ui_Label" FontSize="24" Content="Hello World"></Label>
+            <ListBox Name="ui_ListBox" FontSize="24" ItemsSource="{Binding Path=RecpieItems}" />
+            <Label Name="ui_Label" FontSize="24" Content="Hello World" />
         </StackPanel>
 
 
