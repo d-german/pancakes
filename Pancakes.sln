@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pancakes", "Pancakes\Pancakes.csproj", "{DA205D36-5924-4E54-B16E-9A5218D69D25}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestLibrary", "UnitTestLibrary\UnitTestLibrary.csproj", "{A6B108BE-4D89-46C7-AF4E-AFBCCC1B52C6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PancakeModel", "PancakeModel\PancakeModel.csproj", "{1F224864-F032-4945-89C5-5025C1D93368}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PancakesWPF", "PancakesWPF\PancakesWPF.csproj", "{7EF7B8C0-A040-44FA-944C-729F0DD3DB21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +81,16 @@ Global
 		{1F224864-F032-4945-89C5-5025C1D93368}.Release|ARM.ActiveCfg = Release|Any CPU
 		{1F224864-F032-4945-89C5-5025C1D93368}.Release|x64.ActiveCfg = Release|Any CPU
 		{1F224864-F032-4945-89C5-5025C1D93368}.Release|x86.ActiveCfg = Release|Any CPU
+		{7EF7B8C0-A040-44FA-944C-729F0DD3DB21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EF7B8C0-A040-44FA-944C-729F0DD3DB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EF7B8C0-A040-44FA-944C-729F0DD3DB21}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7EF7B8C0-A040-44FA-944C-729F0DD3DB21}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7EF7B8C0-A040-44FA-944C-729F0DD3DB21}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7EF7B8C0-A040-44FA-944C-729F0DD3DB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EF7B8C0-A040-44FA-944C-729F0DD3DB21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EF7B8C0-A040-44FA-944C-729F0DD3DB21}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7EF7B8C0-A040-44FA-944C-729F0DD3DB21}.Release|x64.ActiveCfg = Release|Any CPU
+		{7EF7B8C0-A040-44FA-944C-729F0DD3DB21}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
