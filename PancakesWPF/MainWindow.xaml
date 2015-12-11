@@ -9,6 +9,7 @@
         Width="300"
         Title="Batches of Buttermilk Pancakes Calculator"
         WindowState="Maximized"
+        Loaded="Window_Loaded"
         DataContext="{Binding Main, Source={StaticResource Locator}}">
 
     <Window.Resources>
@@ -81,9 +82,10 @@
             </StackPanel>
 
         </Grid>
-        <ListBox Name="ui_ListBox" Grid.Row="2" FontSize="24"  ItemsSource="{Binding Path=RecpieItems}">
-           
-        </ListBox>
+        <StackPanel Grid.Row="2">
+            <ListBox Name="ui_ListBox"  FontSize="24" ItemsSource="{Binding Path=RecpieItems}" />
+            <Label Name="ui_Label" FontSize="24" Content="Hello World"></Label>
+        </StackPanel>
 
 
         <!--Uncomment to see an alignment grid to help ensure your controls are

@@ -20,10 +20,24 @@ namespace PancakesWPF
             InitializeComponent();
             Closing += (s, e) => ViewModelLocator.Cleanup();
         }
+        
 
         private void Ui_NumPancakes_OnKeyDown(object sender, KeyEventArgs e)
         {
             
+        }
+
+        private void getDirections(ref System.Text.StringBuilder buffer)
+        {
+            buffer.AppendLine("First mix wet ingredients well.");
+            buffer.AppendLine("Next stir in the dry ingredients just until everything is wet. Don't over mix!");
+            buffer.AppendLine(
+                "It should be slightly lumpy. You can let it sit for a few minutes, and the batter should expand a little.");
+            buffer.AppendLine(
+                "Use a griddle set to 325 - 350 degrees or a skillet set to medium heat.");
+            buffer.AppendLine(
+                "The batter is a little thick so after putting some on the griddle, use a spoon to flatten out the batter.");
+            buffer.AppendLine("Cook about 2 minutes on each side or until they look how you want.");
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
@@ -36,21 +50,20 @@ namespace PancakesWPF
                 buffer.AppendLine(item.ToString());
             }
             buffer.AppendLine(String.Empty);
-            buffer.AppendLine("First mix wet ingredients well.");
-            buffer.AppendLine("Next stir in the dry ingredients just until everything is wet. Don't over mix!");
-            buffer.AppendLine(
-                "It should be slightly lumpy. You can let it sit for a few minutes, and the batter should expand a little.");
-            buffer.AppendLine(
-                "Use a griddle set to 325 - 350 degrees or a skillet set to medium heat.");
-            buffer.AppendLine(
-                "The batter is a little thick so after putting some on the griddle, use a spoon to flatten out the batter.");
-            buffer.AppendLine("Cook about 2 minutes on each side or until they look how you want.");
+            getDirections(ref buffer);
+            var text = buffer.ToString();
 
-
-
-
-            Clipboard.SetText(buffer.ToString());
+            Clipboard.SetText(text);
           
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var buffer = new StringBuilder();
+            getDirections(ref buffer);
+            ui_Label.Content = buffer.ToString();
+
+
         }
     }
 }
