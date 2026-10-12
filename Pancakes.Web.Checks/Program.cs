@@ -25,9 +25,12 @@ foreach (var (count, expected) in cases)
 }
 
 Equal("1/6 egg", PancakeCalculator.Scale(1)[2].Amount, "One pancake keeps its fractional egg");
+Equal(27.3m, PancakeCalculator.Scale(3)[4].Grams, "Oil rounds the final batch weight away from a midpoint");
 
 // Reconstruct every displayed amount to catch dropped fractions and unit carries.
 var factors = new[] { 8m, 8m, 1m / 6m, 2m, 2m, 1m / 6m, 1m / 6m, 1m / 6m };
+// Independent six-pancake weights: cups for flour/milk/sugar/oil, teaspoons for leaveners/vanilla.
+var gramsForSix = new decimal?[] { 120m, 245m, null, 50m, 54.5m, 4.6m, 4.6m, 4.2m };
 for (var count = 1; count <= PancakeCalculator.MaximumPancakes; count++)
 {
     var ingredients = PancakeCalculator.Scale(count);
@@ -37,6 +40,10 @@ for (var count = 1; count <= PancakeCalculator.MaximumPancakes; count++)
         var actual = ParseAmount(ingredients[index].Amount);
         if (Math.Abs(actual - expected) > 0.000000001m)
             throw new Exception($"{count}: {ingredients[index].Name} lost quantity: {ingredients[index].Amount}");
+        decimal? expectedGrams = gramsForSix[index] is decimal baseGrams
+            ? decimal.Round(count * baseGrams / 6m, 1, MidpointRounding.AwayFromZero)
+            : null;
+        Equal(expectedGrams, ingredients[index].Grams, $"{count}: {ingredients[index].Name} grams (eggs remain counts)");
     }
 }
 
@@ -52,7 +59,7 @@ foreach (var invalid in new[] { 0, -1, int.MinValue, PancakeCalculator.MaximumPa
     }
 }
 
-Console.WriteLine("Passed recipe fixtures, exact amounts for 1–10,000 pancakes, and invalid inputs.");
+Console.WriteLine("Passed recipe fixtures, volume and gram amounts for 1–10,000 pancakes, egg counts, and invalid inputs.");
 
 static void Equal<T>(T expected, T actual, string context)
 {

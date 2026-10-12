@@ -35,7 +35,7 @@
                     }
                 </div>
                 <div class="batch-divider"></div>
-                <p class="small-note"><strong>Your recipe, in familiar measures.</strong><br />US cups, tablespoons and teaspoons. Fractional eggs stay fractional, so a small batch works too.</p>
+                <p class="small-note"><strong>Ready for your kitchen scale.</strong><br />Grams plus US cups, tablespoons and teaspoons for every ingredient except eggs. Eggs stay as counts, including fractions.</p>
                 <div class="pancake-art" aria-hidden="true">
                     <svg viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg">
                         <ellipse cx="160" cy="128" rx="127" ry="17" fill="#e8e4d6"/>
@@ -69,10 +69,21 @@
                         {
                             <div class="ingredient-row">
                                 <dt><span class="ingredient-dot" aria-hidden="true"></span>@ingredient.Name</dt>
-                                <dd data-ingredient="@ingredient.Name">@ingredient.Amount</dd>
+                                <dd data-ingredient="@ingredient.Name">
+                                    @if (ingredient.Grams is decimal grams)
+                                    {
+                                        <span class="ingredient-grams">@grams.ToString("0.#", CultureInfo.InvariantCulture) g</span>
+                                        <span class="ingredient-volume">@ingredient.Amount</span>
+                                    }
+                                    else
+                                    {
+                                        @ingredient.Amount
+                                    }
+                                </dd>
                             </div>
                         }
                     </dl>
+                    <p class="weight-note">Gram weights are approximate, rounded to 0.1 g. Assumes all-purpose flour, granulated sugar, cultured buttermilk and soybean vegetable oil. <a href="https://github.com/d-german/pancakes#gram-conversions" target="_blank" rel="noopener noreferrer">Conversion sources</a>.</p>
                     <div class="recipe-footnote"><span aria-hidden="true">↳</span> For part of an egg, beat it first, then measure the fraction you need.</div>
                     <button class="print-button" type="button" @onclick="PrintRecipe"><span aria-hidden="true">⎙</span> Print this recipe</button>
                 }

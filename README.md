@@ -1,7 +1,8 @@
 ﻿# Buttermilk pancake calculator
 
 Scale the original recipe from 1 to 10,000 pancakes in a browser.
-The app shows exact US gallons, cups, tablespoons, teaspoons, and mixed fractions.
+The app always shows grams alongside US gallons, cups, tablespoons, teaspoons,
+and mixed fractions for every ingredient except eggs.
 For example, 9 pancakes need **1 1/2 eggs**; fractional eggs are preserved.
 
 [Published calculator](https://d-german.github.io/pancakes/)
@@ -27,7 +28,7 @@ dotnet publish Pancakes.Web --configuration Release
 
 The dependency-free checks cover complete recipes for 6, 9, 12, 25, 50,
 and 1,000 pancakes, fractional eggs, invalid inputs, and preservation of
-every ingredient amount across all supported counts.
+every volume and gram amount across all supported counts.
 
 ## Original recipe
 
@@ -47,7 +48,31 @@ For six pancakes:
 
 Vanilla follows the original WPF view model's baking-powder ratio.
 `Measurement_Breakdown_Requirements.md` records broader conversion ideas;
-this app implements the recipe's US cooking measures.
+this app implements the recipe's US cooking measures and ingredient-specific gram weights.
+
+## Gram conversions
+
+Weights scale directly from the original recipe's cups or teaspoons, then round
+the final batch total to the nearest 0.1 g (midpoints round up). Eggs remain counts.
+No intermediate per-pancake weight is rounded. These are approximate baking
+weights, not laboratory densities: brands, temperature, and flour packing vary.
+Flour assumes all-purpose flour spooned and leveled; sugar is white granulated;
+buttermilk is liquid cultured buttermilk; oil is soybean vegetable oil; vanilla is extract.
+
+| Ingredient | Reference weight | Source |
+| --- | --- | --- |
+| All-purpose flour | 120 g / US cup | [King Arthur Baking](https://www.kingarthurbaking.com/learn/ingredient-weight-chart) |
+| Cultured buttermilk | 245 g / US cup | [USDA SR Legacy 170874](https://api.nal.usda.gov/fdc/v1/food/170874?api_key=DEMO_KEY) |
+| Granulated sugar | 200 g / US cup | [USDA SR Legacy 169655](https://api.nal.usda.gov/fdc/v1/food/169655?api_key=DEMO_KEY) |
+| Soybean vegetable oil | 218 g / US cup | [USDA SR Legacy 171411](https://api.nal.usda.gov/fdc/v1/food/171411?api_key=DEMO_KEY) |
+| Double-acting phosphate baking powder | 4.6 g / teaspoon | [USDA SR Legacy 172804](https://api.nal.usda.gov/fdc/v1/food/172804?api_key=DEMO_KEY) |
+| Baking soda | 4.6 g / teaspoon | [USDA SR Legacy 175040](https://api.nal.usda.gov/fdc/v1/food/175040?api_key=DEMO_KEY) |
+| Vanilla extract | 4.2 g / teaspoon | [USDA SR Legacy 173471](https://api.nal.usda.gov/fdc/v1/food/173471?api_key=DEMO_KEY) |
+
+USDA source links open the record JSON; values were verified against each record's `foodPortions` in the
+[FoodData Central API](https://fdc.nal.usda.gov/api-guide/).
+Use the source portion matching the recipe unit: USDA's cup, tablespoon, and
+teaspoon weights are independently rounded and can differ when multiplied.
 
 ## Why this repository
 
