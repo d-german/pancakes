@@ -1,0 +1,122 @@
+﻿@page "/"
+@inject IJSRuntime JS
+
+<PageTitle>Buttermilk Pancakes — Recipe Calculator</PageTitle>
+
+<div class="site-shell">
+    <header class="site-header">
+        <a class="brand" href="./"><span class="brand-icon" aria-hidden="true">🥞</span> Pancakes</a>
+        <span class="header-note">A recipe worth sharing</span>
+    </header>
+
+    <main>
+        <section class="intro">
+            <p class="eyebrow">THE ORIGINAL BUTTERMILK RECIPE</p>
+            <h1>Good pancakes.<br />Just the right amount.</h1>
+            <p class="intro-copy">Breakfast for two or a table full of friends. Choose your pancake count and we'll do the measuring.</p>
+        </section>
+
+        <div class="recipe-grid">
+            <section class="batch-card" aria-labelledby="batch-heading">
+                <div class="card-kicker"><span aria-hidden="true">01</span> YOUR BATCH</div>
+                <h2 id="batch-heading">How many pancakes?</h2>
+                <label class="input-label" for="pancake-count">Number of pancakes</label>
+                <input id="pancake-count" class="count-input" type="number" inputmode="numeric" min="1" max="10000" step="1"
+                       value="@_countText" @oninput="ChangeCount" aria-describedby="count-help count-error"
+                       aria-invalid="@(_error is not null ? "true" : "false")" />
+                <p id="count-help" class="input-help">Ingredients update as you type. Choose 1–10,000.</p>
+                <p id="count-error" class="input-error" role="alert">@_error</p>
+
+                <div class="presets" aria-label="Quick pancake counts">
+                    @foreach (var preset in new[] { 6, 12, 24, 50 })
+                    {
+                        <button type="button" class="@(_error is null && _count == preset ? "preset active" : "preset")"
+                                aria-pressed="@(_error is null && _count == preset)" @onclick="() => SetCount(preset)">@preset</button>
+                    }
+                </div>
+                <div class="batch-divider"></div>
+                <p class="small-note"><strong>Your recipe, in familiar measures.</strong><br />US cups, tablespoons and teaspoons. Fractional eggs stay fractional, so a small batch works too.</p>
+                <div class="pancake-art" aria-hidden="true">
+                    <svg viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="160" cy="128" rx="127" ry="17" fill="#e8e4d6"/>
+                        <ellipse cx="160" cy="123" rx="111" ry="11" fill="#fffdf7"/>
+                        <path d="M67 94c0 22 185 22 185 0v15c0 22-185 22-185 0z" fill="#bb793e"/>
+                        <ellipse cx="160" cy="94" rx="93" ry="22" fill="#e2ad67"/>
+                        <path d="M72 73c0 22 176 22 176 0v17c0 22-176 22-176 0z" fill="#c88849"/>
+                        <ellipse cx="160" cy="73" rx="88" ry="22" fill="#f0c581"/>
+                        <path d="M80 54c0 21 160 21 160 0v16c0 21-160 21-160 0z" fill="#cf9655"/>
+                        <ellipse cx="160" cy="54" rx="80" ry="21" fill="#f6d596"/>
+                        <path d="M129 44c28-17 77-8 82 7 1 7-10 11-11 22 0 16-13 16-14 0-1-11-15-13-32-13-21 0-40-7-25-16z" fill="#9a522c" opacity=".85"/>
+                        <path d="m151 34 28-4 14 12-29 5z" fill="#ffe9a6"/>
+                        <path d="m164 47 29-5v7l-29 5z" fill="#e9c66f"/>
+                        <path d="m151 34 13 13v7l-13-13z" fill="#f6d781"/>
+                    </svg>
+                </div>
+            </section>
+
+            <section class="ingredients-card" aria-labelledby="ingredients-heading">
+                <div class="ingredients-heading">
+                    <div><div class="card-kicker"><span aria-hidden="true">02</span> THE INGREDIENTS</div><h2 id="ingredients-heading">Ready to mix</h2></div>
+                    @if (_error is null)
+                    {
+                        <span class="yield" aria-live="polite">@_count pancakes</span>
+                    }
+                </div>
+                @if (_error is null)
+                {
+                    <dl class="ingredient-list" aria-live="polite" aria-atomic="true">
+                        @foreach (var ingredient in _ingredients)
+                        {
+                            <div class="ingredient-row">
+                                <dt><span class="ingredient-dot" aria-hidden="true"></span>@ingredient.Name</dt>
+                                <dd data-ingredient="@ingredient.Name">@ingredient.Amount</dd>
+                            </div>
+                        }
+                    </dl>
+                    <div class="recipe-footnote"><span aria-hidden="true">↳</span> For part of an egg, beat it first, then measure the fraction you need.</div>
+                    <button class="print-button" type="button" @onclick="PrintRecipe"><span aria-hidden="true">⎙</span> Print this recipe</button>
+                }
+                else
+                {
+                    <div class="empty-recipe">Choose a valid pancake count to see your ingredients.</div>
+                }
+            </section>
+        </div>
+
+        <section class="method" aria-labelledby="method-heading">
+            <div class="method-title"><p class="eyebrow">FROM BATTER TO BREAKFAST</p><h2 id="method-heading">Keep it simple.</h2></div>
+            <ol>
+                <li><span class="step-number">1</span><div><h3>Mix the wet ingredients</h3><p>Blend the buttermilk, eggs, oil and vanilla until well mixed and bubbly.</p></div></li>
+                <li><span class="step-number">2</span><div><h3>Fold in the dry ingredients</h3><p>Stir in the flour, sugar, baking powder and baking soda just until wet. Leave a few lumps and let the batter rest briefly.</p></div></li>
+                <li><span class="step-number">3</span><div><h3>Cook until golden</h3><p>Use a griddle at 325–350°F or a skillet over medium heat. Spread the thick batter gently and cook about 2 minutes per side.</p></div></li>
+            </ol>
+        </section>
+    </main>
+    <footer><span>Made for slow mornings &amp; full tables.</span><a href="https://github.com/d-german/pancakes" target="_blank" rel="noopener noreferrer">Recipe &amp; source <span aria-hidden="true">↗</span></a></footer>
+</div>
+
+@code {
+    private string _countText = PancakeCalculator.DefaultPancakes.ToString(CultureInfo.InvariantCulture);
+    private int _count = PancakeCalculator.DefaultPancakes;
+    private string? _error;
+    private IReadOnlyList<IngredientAmount> _ingredients = PancakeCalculator.Scale(PancakeCalculator.DefaultPancakes);
+
+    private void ChangeCount(ChangeEventArgs args) => UpdateCount(args.Value?.ToString() ?? "");
+    private void SetCount(int count) => UpdateCount(count.ToString(CultureInfo.InvariantCulture));
+
+    private void UpdateCount(string value)
+    {
+        _countText = value;
+        if (!int.TryParse(value, NumberStyles.None, CultureInfo.InvariantCulture, out var count) ||
+            count < 1 || count > PancakeCalculator.MaximumPancakes)
+        {
+            _error = "Enter a whole number from 1 to 10,000.";
+            return;
+        }
+        _count = count;
+        _ingredients = PancakeCalculator.Scale(count);
+        _error = null;
+    }
+
+    private async Task PrintRecipe() => await JS.InvokeVoidAsync("print");
+}
