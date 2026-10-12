@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Pancakes.Web.Checks/Pancakes.Web.Checks.csproj" />
+  <Project Path="Pancakes.Web/Pancakes.Web.csproj" />
+</Solution>
