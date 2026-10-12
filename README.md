@@ -4,6 +4,9 @@ Scale the original recipe from 1 to 10,000 pancakes in a browser.
 The app always shows grams alongside US gallons, cups, tablespoons, teaspoons,
 and mixed fractions for every ingredient except eggs.
 For example, 9 pancakes need **1 1/2 eggs**; fractional eggs are preserved.
+Check off ingredients as you add them while cooking or buy them while shopping.
+Checks stay when the pancake count changes. **Clear checks** starts a new list;
+refreshing the page also clears the checks.
 
 [Published calculator](https://d-german.github.io/pancakes/)
 

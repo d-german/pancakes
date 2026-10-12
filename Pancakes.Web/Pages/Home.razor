@@ -64,11 +64,22 @@
                 </div>
                 @if (_error is null)
                 {
-                    <dl class="ingredient-list" aria-live="polite" aria-atomic="true">
+                    <p id="checklist-help" class="checklist-help">Check off ingredients as you add or buy them. Clear the checks to start again; refreshing also clears them.</p>
+                    <div class="checklist-toolbar">
+                        <span class="checklist-progress" role="status">@_checkedIngredients.Count of @_ingredients.Count checked</span>
+                        <button class="clear-checks" type="button" disabled="@(_checkedIngredients.Count == 0)" @onclick="ClearChecks">Clear checks</button>
+                    </div>
+                    <dl class="ingredient-list" aria-describedby="checklist-help">
                         @foreach (var ingredient in _ingredients)
                         {
-                            <div class="ingredient-row">
-                                <dt><span class="ingredient-dot" aria-hidden="true"></span>@ingredient.Name</dt>
+                            <div class="@(_checkedIngredients.Contains(ingredient.Name) ? "ingredient-row is-checked" : "ingredient-row")" @key="ingredient.Name">
+                                <dt>
+                                    <label class="ingredient-label">
+                                        <input class="ingredient-check" type="checkbox" checked="@_checkedIngredients.Contains(ingredient.Name)"
+                                               @onchange="args => CheckIngredient(ingredient.Name, args.Value is true)" />
+                                        <span class="ingredient-name">@ingredient.Name</span>
+                                    </label>
+                                </dt>
                                 <dd data-ingredient="@ingredient.Name">
                                     @if (ingredient.Grams is decimal grams)
                                     {
@@ -110,10 +121,21 @@
     private string _countText = PancakeCalculator.DefaultPancakes.ToString(CultureInfo.InvariantCulture);
     private int _count = PancakeCalculator.DefaultPancakes;
     private string? _error;
+    private readonly HashSet<string> _checkedIngredients = new();
     private IReadOnlyList<IngredientAmount> _ingredients = PancakeCalculator.Scale(PancakeCalculator.DefaultPancakes);
 
     private void ChangeCount(ChangeEventArgs args) => UpdateCount(args.Value?.ToString() ?? "");
     private void SetCount(int count) => UpdateCount(count.ToString(CultureInfo.InvariantCulture));
+
+    private void CheckIngredient(string name, bool isChecked)
+    {
+        if (isChecked)
+            _checkedIngredients.Add(name);
+        else
+            _checkedIngredients.Remove(name);
+    }
+
+    private void ClearChecks() => _checkedIngredients.Clear();
 
     private void UpdateCount(string value)
     {
