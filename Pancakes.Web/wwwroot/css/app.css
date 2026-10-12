@@ -279,6 +279,23 @@ h2 {
   font-weight:650;
   font-variant-numeric:tabular-nums
 }
+.ingredient-grams {
+  display:block;
+  font-size:16px
+}
+.ingredient-volume {
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:450;
+  line-height:1.6
+}
+.weight-note {
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.7;
+  margin:16px 0
+}
 .recipe-footnote {
   display:flex;
   gap:9px;
