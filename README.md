@@ -1,8 +1,9 @@
 ﻿# Buttermilk pancake calculator
 
 Scale the original recipe from 1 to 10,000 pancakes in a browser.
-The app always shows grams alongside US gallons, cups, tablespoons, teaspoons,
-and mixed fractions for every ingredient except eggs.
+The app always shows grams and pounds alongside US gallons, cups, tablespoons,
+teaspoons, and mixed fractions for every ingredient except eggs. Oil also shows
+US fluid ounces for shopping.
 For example, 9 pancakes need **1 1/2 eggs**; fractional eggs are preserved.
 Check off ingredients as you add them while cooking or buy them while shopping.
 Checks stay when the pancake count changes. **Clear checks** starts a new list;
@@ -31,7 +32,7 @@ dotnet publish Pancakes.Web --configuration Release
 
 The dependency-free checks cover complete recipes for 6, 9, 12, 25, 50,
 and 1,000 pancakes, fractional eggs, invalid inputs, and preservation of
-every volume and gram amount across all supported counts.
+every volume, gram, pound and oil fluid-ounce amount across all supported counts.
 
 ## Original recipe
 
@@ -76,6 +77,16 @@ USDA source links open the record JSON; values were verified against each record
 [FoodData Central API](https://fdc.nal.usda.gov/api-guide/).
 Use the source portion matching the recipe unit: USDA's cup, tablespoon, and
 teaspoon weights are independently rounded and can differ when multiplied.
+
+## Shopping units
+
+Pounds use **1 lb = 453.59237 g**. Oil uses **8 US fluid ounces per US cup**,
+calculated directly from the recipe volume rather than treating fluid ounces as
+weight ounces. See [NIST's SI conversion factors](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8)
+and [NIST's household equivalents](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=936072).
+Pounds and oil fluid ounces round to 0.001; grams retain their existing 0.1 g
+rounding. Each unit rounds only the final batch total, independently, so the
+gram display's rounding does not affect the pound conversion. Eggs remain counts.
 
 ## Why this repository
 

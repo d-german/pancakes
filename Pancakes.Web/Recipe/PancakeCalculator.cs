@@ -2,7 +2,8 @@
 
 namespace Pancakes.Web.Recipe;
 
-public sealed record IngredientAmount(string Name, string Amount, decimal? Grams = null);
+public sealed record IngredientAmount(string Name, string Amount, decimal? Grams = null,
+    decimal? Pounds = null, decimal? FluidOunces = null);
 
 public static class PancakeCalculator
 {
@@ -18,20 +19,22 @@ public static class PancakeCalculator
         return
         [
             // Ingredient-specific household weights and assumptions are sourced in README.md.
-            new("Flour", Volume(recipe.NumCupsFlower * 48), Weight(recipe.NumCupsFlower, 120m)),
-            new("Buttermilk", Volume(recipe.NumCupsButtermilk * 48), Weight(recipe.NumCupsButtermilk, 245m)),
+            Weighed("Flour", recipe.NumCupsFlower * 48, recipe.NumCupsFlower * 120m),
+            Weighed("Buttermilk", recipe.NumCupsButtermilk * 48, recipe.NumCupsButtermilk * 245m),
             new("Eggs", Quantity(Ticks(recipe.NumEggs), 6, "egg", "eggs")),
-            new("Sugar", Volume(recipe.NumCupsSugar * 48), Weight(recipe.NumCupsSugar, 200m)),
-            new("Oil", Volume(recipe.NumCupsOil * 48), Weight(recipe.NumCupsOil, 218m)),
-            new("Baking powder", Volume(recipe.NumTspBakingPowder), Weight(recipe.NumTspBakingPowder, 4.6m)),
-            new("Baking soda", Volume(recipe.NumTspBakingSoda), Weight(recipe.NumTspBakingSoda, 4.6m)),
+            Weighed("Sugar", recipe.NumCupsSugar * 48, recipe.NumCupsSugar * 200m),
+            Weighed("Oil", recipe.NumCupsOil * 48, recipe.NumCupsOil * 218m, recipe.NumCupsOil * 8m),
+            Weighed("Baking powder", recipe.NumTspBakingPowder, recipe.NumTspBakingPowder * 4.6m),
+            Weighed("Baking soda", recipe.NumTspBakingSoda, recipe.NumTspBakingSoda * 4.6m),
             // The original WPF recipe uses the baking-powder ratio for vanilla.
-            new("Vanilla", Volume(recipe.NumTspBakingPowder), Weight(recipe.NumTspBakingPowder, 4.2m))
+            Weighed("Vanilla", recipe.NumTspBakingPowder, recipe.NumTspBakingPowder * 4.2m)
         ];
     }
 
-    private static decimal Weight(decimal quantity, decimal gramsPerUnit) =>
-        decimal.Round(quantity * gramsPerUnit, 1, MidpointRounding.AwayFromZero);
+    private static IngredientAmount Weighed(string name, decimal teaspoons, decimal grams, decimal? fluidOunces = null) =>
+        new(name, Volume(teaspoons), decimal.Round(grams, 1, MidpointRounding.AwayFromZero),
+            decimal.Round(grams / 453.59237m, 3, MidpointRounding.AwayFromZero),
+            fluidOunces is { } ounces ? decimal.Round(ounces, 3, MidpointRounding.AwayFromZero) : null);
 
     private static int Ticks(decimal amount) => decimal.ToInt32(decimal.Round(amount * 6));
 

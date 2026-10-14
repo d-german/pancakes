@@ -26,6 +26,11 @@ foreach (var (count, expected) in cases)
 
 Equal("1/6 egg", PancakeCalculator.Scale(1)[2].Amount, "One pancake keeps its fractional egg");
 Equal(27.3m, PancakeCalculator.Scale(3)[4].Grams, "Oil rounds the final batch weight away from a midpoint");
+Equal(0.529m, PancakeCalculator.Scale(12)[0].Pounds, "Twelve pancakes need 0.529 lb of flour");
+Equal(0.240m, PancakeCalculator.Scale(12)[4].Pounds, "Twelve pancakes need 0.240 lb of oil");
+Equal(4m, PancakeCalculator.Scale(12)[4].FluidOunces, "Half a US cup of oil is 4 fluid ounces, independent of its weight");
+Equal(48m, PancakeCalculator.Scale(144)[4].FluidOunces, "Shopping-sized oil quantity for 144 pancakes");
+Equal(0.333m, PancakeCalculator.Scale(1)[4].FluidOunces, "Fractional fluid ounces round only the final batch total");
 
 // Reconstruct every displayed amount to catch dropped fractions and unit carries.
 var factors = new[] { 8m, 8m, 1m / 6m, 2m, 2m, 1m / 6m, 1m / 6m, 1m / 6m };
@@ -44,6 +49,14 @@ for (var count = 1; count <= PancakeCalculator.MaximumPancakes; count++)
             ? decimal.Round(count * baseGrams / 6m, 1, MidpointRounding.AwayFromZero)
             : null;
         Equal(expectedGrams, ingredients[index].Grams, $"{count}: {ingredients[index].Name} grams (eggs remain counts)");
+        decimal? expectedPounds = gramsForSix[index] is decimal unroundedBaseGrams
+            ? decimal.Round(count * unroundedBaseGrams / 6m / 453.59237m, 3, MidpointRounding.AwayFromZero)
+            : null;
+        Equal(expectedPounds, ingredients[index].Pounds, $"{count}: {ingredients[index].Name} pounds without intermediate gram rounding");
+        decimal? expectedFluidOunces = names[index] == "Oil"
+            ? decimal.Round(count / 3m, 3, MidpointRounding.AwayFromZero)
+            : null;
+        Equal(expectedFluidOunces, ingredients[index].FluidOunces, $"{count}: US fluid ounces only for oil (eggs remain counts)");
     }
 }
 
@@ -59,7 +72,7 @@ foreach (var invalid in new[] { 0, -1, int.MinValue, PancakeCalculator.MaximumPa
     }
 }
 
-Console.WriteLine("Passed recipe fixtures, volume and gram amounts for 1–10,000 pancakes, egg counts, and invalid inputs.");
+Console.WriteLine("Passed recipe fixtures, volume, grams, pounds and oil US fluid ounces for 1–10,000 pancakes, egg counts, and invalid inputs.");
 
 static void Equal<T>(T expected, T actual, string context)
 {
